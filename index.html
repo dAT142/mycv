@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <style>
+  /* Giảm khoảng cách tổng thể giữa các mục */
+  section,
+  .mb-10,
+  .mb-12,
+  .mb-16,
+  .py-20,
+  .py-16 {
+    padding-top: 32px !important;    /* ~py-8 */
+    padding-bottom: 32px !important;
+  }
+
+  /* Thu nhỏ hero đầu trang nếu có */
+  #hero, .hero-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+</style>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dịch Vụ Mạng Xã Hội - Media Luxury</title>
+  <meta name="description" content="Trang giới thiệu dịch vụ hỗ trợ tài khoản Facebook: tư vấn, khôi phục, mở khóa, xác minh danh tính." />
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html, body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+    .gradient { background: radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.15), transparent),
+                              radial-gradient(800px 400px at 110% 10%, rgba(168,85,247,.12), transparent),
+                              linear-gradient(180deg, #ffffff, #f8fafc); }
+    .card-animate { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-animate:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+    .icon-animate i { transition: color 0.3s ease, transform 0.3s ease; }
+    .icon-animate:hover i { color: #3b82f6; transform: scale(1.2); }
+    .fade-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-section.show { opacity: 1; transform: translateY(0); }
+    /* Tuyết rơi canvas */
+    #snow-canvas { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:50; }
+    /* Music button */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(to right,#6366f1,#3b82f6);
+      color: white;
+      border-radius: 9999px;
+      width: 50px;
+      height: 50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      z-index:51;
+    }
+    .music-btn:hover { transform: scale(1.1); }
+
+    /* Trái tim bay theo chuột */
+    .heart {
+      position: fixed;
+      transform: rotate(-45deg);
+      pointer-events: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body class="gradient text-slate-800">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+<a href="#" class="flex items-center">
+  <img src="https://i.imgur.com/qlNDKy8.png" alt="Media Luxury Logo" class="h-10 w-auto">
+</a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="#dich-vu" class="hover:text-pink-600">Dịch vụ</a>
+      <a href="#bang-gia" class="hover:text-rose-600">Bảng giá</a>
+      <a href="#truong-hop" class="hover:text-blue-600">Các trường hợp</a>
+      <a href="#phan-hoi" class="hover:text-blue-600">Phản hồi</a>
+      <a href="#faq" class="hover:text-rose-600">FAQ</a>
+      <a href="#lien-he" class="hover:text-blue-600">Member</a>
+    </nav>
+    <a href="#lien-he" class="inline-flex items-center rounded-xl border border-transparent bg-blue-600 px-4 py-2 text-white text-sm font-semibold shadow hover:bg-blue-700 focus:outline-none">Liên hệ hỗ trợ</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="relative overflow-hidden fade-section" class="py-10 bg-blue-50 fade-section">
+  <div class="absolute inset-0 -z-10">
+    <svg class="w-full h-full opacity-30" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" class="text-blue-50" d="M0,64L48,85.3C96,107,192,149,288,138.7C384,128,480,64,576,48C672,32,768,64,864,80C960,96,1056,96,1152,80C1248,64,1344,32,1392,16L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+    </svg>
+  </div>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 border border-blue-100">Hỗ trợ nhanh • Bảo mật • Tận tâm</span>
+      <h1 class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight text-slate-900">Dịch Vụ Mạng Xã Hội - Media Luxury</h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl">Nếu tài khoản gặp sự cố: bị khóa, bị hack, yêu cầu mã đăng nhập, vi phạm tiêu chuẩn cộng đồng… Chúng tôi tư vấn, xác minh và hỗ trợ khôi phục an toàn.Phù hợp cho người bán hàng, creator, doanh nghiệp muốn tăng uy tín kênh, đẩy đề xuất và tối ưu chuyển đổi. Cam kết thực hiện theo mục tiêu, hỗ trợ lâu dài.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://zalo.me/0567758386" target="_blank" class="inline-flex items-center rounded-xl bg-emerald-600 px-5 py-3 text-white font-semibold shadow hover:bg-emerald-700">Liên hệ Zalo Ceo</a>
+        <a href="https://subre.hanam.vn/" class="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 font-semibold hover:border-slate-400 hover:bg-white">Tăng Tương Tác MXH</a>
+      </div>
+      <div class="mt-6 text-xs text-slate-500">*Không liên kết/đại diện cho Meta. Chỉ cung cấp dịch vụ tư vấn & hỗ trợ khách hàng.</div>
+    </div>
+    <div class="relative">
+      <img src="https://i.imgur.com/t1mtQzn.jpeg" alt="Minh hoạ bảo mật" class="rounded-3xl shadow-lg mb-6 object-cover w-full max-h-[400px]" loading="lazy"/>
+      <div class="absolute -inset-4 -z-10 bg-gradient-to-tr from-indigo-200 to-blue-100 rounded-3xl blur-2xl opacity-70"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Các dịch vụ (Đã cập nhật) -->
+<section id="dich-vu" class="py-1 bg-blue-50 fade-section">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Các dịch vụ của chúng tôi</h2>
+
+    <!-- Dịch vụ 1: Tăng tương tác -->
+    <div class="mb-8">
+      <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+        <i data-lucide="trending-up" class="w-6 h-6 text-blue-600"></i> 1. Dịch vụ tăng tương tác
+      </h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="thumbs-up" class="w-6 h-6 text-blue-500"></i>
+          <div><h4 class="font-semibold">Tăng like</h4><p class="text-sm text-slate-600">Fanpage, Profile, Reels, Video…</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="user-plus" class="w-6 h-6 text-pink-500"></i>
+          <div><h4 class="font-semibold">Tăng follow</h4><p class="text-sm text-slate-600">Facebook, TikTok, Instagram, YouTube…</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="message-circle" class="w-6 h-6 text-purple-500"></i>
+          <div><h4 class="font-semibold">Tăng comment</h4><p class="text-sm text-slate-600">Comment thật hoặc ảo theo yêu cầu</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="share-2" class="w-6 h-6 text-emerald-500"></i>
+          <div><h4 class="font-semibold">Tăng share</h4><p class="text-sm text-slate-600">Chia sẻ bài viết tăng tiếp cận</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="eye" class="w-6 h-6 text-indigo-500"></i>
+          <div><h4 class="font-semibold">Tăng mắt live</h4><p class="text-sm text-slate-600">Viewer livestream theo thời gian thực</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="play-circle" class="w-6 h-6 text-rose-500"></i>
+          <div><h4 class="font-semibold">Tăng view video</h4><p class="text-sm text-slate-600">Reels, Shorts, Video dài…</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="star" class="w-6 h-6 text-yellow-500"></i>
+          <div><h4 class="font-semibold">Tăng đánh giá 5 sao</h4><p class="text-sm text-slate-600">Tăng uy tín Fanpage</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="youtube" class="w-6 h-6 text-red-600"></i>
+          <div><h4 class="font-semibold">Tăng sub & watchtime</h4><p class="text-sm text-slate-600">YouTube theo gói</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="heart" class="w-6 h-6 text-pink-600"></i>
+          <div><h4 class="font-semibold">Tăng tim TikTok</h4><p class="text-sm text-slate-600">Đẩy đề xuất mạnh</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 2: Quản lý tài khoản -->
+    <div class="mb-8">
+      <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+        <i data-lucide="users" class="w-6 h-6 text-purple-600"></i> 2. Dịch vụ quản lý tài khoản
+      </h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="cpu" class="w-6 h-6 text-blue-500"></i>
+          <div><h4 class="font-semibold">Nuôi tài khoản</h4><p class="text-sm text-slate-600">Facebook – TikTok – Instagram</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="verified" class="w-6 h-6 text-emerald-500"></i>
+          <div><h4 class="font-semibold">Tăng trust</h4><p class="text-sm text-slate-600">Lên tương tác thật</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="calendar" class="w-6 h-6 text-pink-500"></i>
+          <div><h4 class="font-semibold">Chăm sóc trang cá nhân</h4><p class="text-sm text-slate-600">Đăng bài & tương tác hằng ngày</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="message-square" class="w-6 h-6 text-indigo-500"></i>
+          <div><h4 class="font-semibold">Chạy seeding comment</h4><p class="text-sm text-slate-600">Theo kịch bản</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="trash-2" class="w-6 h-6 text-red-500"></i>
+          <div><h4 class="font-semibold">Dọn dẹp tài khoản</h4><p class="text-sm text-slate-600">Ẩn bài, xóa bài cũ…</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 3: Fanpage & Group -->
+    <div class="mb-8">
+      <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+        <i data-lucide="layout-dashboard" class="w-6 h-6 text-rose-600"></i> 3. Dịch vụ Fanpage & Group
+      </h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="search" class="w-6 h-6 text-blue-500"></i>
+          <div><h4 class="font-semibold">Tạo Fanpage chuẩn SEO</h4><p class="text-sm text-slate-600">Tối ưu hiển thị</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="thumbs-up" class="w-6 h-6 text-indigo-500"></i>
+          <div><h4 class="font-semibold">Tăng like & follow</h4><p class="text-sm text-slate-600">Việt/Global</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="shopping-cart" class="w-6 h-6 text-green-500"></i>
+          <div><h4 class="font-semibold">Nuôi Fanpage bán hàng</h4><p class="text-sm text-slate-600">Ổn định, lâu dài</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="settings" class="w-6 h-6 text-yellow-600"></i>
+          <div><h4 class="font-semibold">Quản trị Fanpage</h4><p class="text-sm text-slate-600">Trả lời tin nhắn, đăng bài…</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="users" class="w-6 h-6 text-purple-500"></i>
+          <div><h4 class="font-semibold">Phát triển Group</h4><p class="text-sm text-slate-600">Mời thành viên, tăng tương tác</p></div>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+          <i data-lucide="message-circle" class="w-6 h-6 text-pink-500"></i>
+          <div><h4 class="font-semibold">Seeding Group</h4><p class="text-sm text-slate-600">Theo yêu cầu</p></div>
+        </div>
+      </div>
+    </div>
+<!-- Dịch vụ 4: Nội dung (Content & Branding) -->
+<div class="mb-8">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <i data-lucide="brush" class="w-6 h-6 text-pink-600"></i> 4. Dịch vụ Nội dung – Content & Branding
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="globe" class="w-6 h-6 text-green-600"></i>
+      <div>
+        <h4 class="font-semibold">Instagram / Google Ads</h4>
+        <p class="text-sm text-slate-600">Triển khai quảng cáo chuẩn – tối ưu ngân sách</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="settings-2" class="w-6 h-6 text-indigo-600"></i>
+      <div>
+        <h4 class="font-semibold">Setup chiến dịch – tối ưu chuyển đổi</h4>
+        <p class="text-sm text-slate-600">Thiết lập Ads chuẩn, giảm CPM – tăng hiệu quả</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="repeat" class="w-6 h-6 text-yellow-600"></i>
+      <div>
+        <h4 class="font-semibold">Xây phễu khách hàng – remarketing</h4>
+        <p class="text-sm text-slate-600">Theo dõi lại khách, kéo chi phí xuống mức thấp</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Dịch vụ 5: Quảng cáo -->
+<div class="mb-8">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <i data-lucide="megaphone" class="w-6 h-6 text-red-600"></i> 5. Dịch vụ quảng cáo
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="mouse-pointer-click" class="w-6 h-6 text-blue-600"></i>
+      <div>
+        <h4 class="font-semibold">Quảng cáo Facebook Ads</h4>
+        <p class="text-sm text-slate-600">Đẩy tương tác, tiếp cận đúng khách hàng mục tiêu</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="badge-dollar-sign" class="w-6 h-6 text-green-600"></i>
+      <div>
+        <h4 class="font-semibold">Quảng cáo tối ưu chuyển đổi</h4>
+        <p class="text-sm text-slate-600">Tập trung tạo ra đơn – lead chất lượng cao</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="bar-chart-3" class="w-6 h-6 text-indigo-600"></i>
+      <div>
+        <h4 class="font-semibold">Tối ưu ngân sách – đo lường</h4>
+        <p class="text-sm text-slate-600">Theo dõi số liệu, giảm lãng phí quảng cáo</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Dịch vụ 6: Bảo mật kỹ thuật -->
+<div class="mb-8">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <i data-lucide="shield" class="w-6 h-6 text-emerald-600"></i> 6. Dịch vụ bảo mật – kỹ thuật
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="unlock" class="w-6 h-6 text-blue-600"></i>
+      <div>
+        <h4 class="font-semibold">Khôi phục tài khoản Facebook</h4>
+        <p class="text-sm text-slate-600">Lấy lại tài khoản bị hack, báo cáo, vô hiệu hóa</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600"></i>
+      <div>
+        <h4 class="font-semibold">Check checkpoint</h4>
+        <p class="text-sm text-slate-600">Xử lý yêu cầu xác minh danh tính, 956, 282…</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="slash" class="w-6 h-6 text-indigo-600"></i>
+      <div>
+        <h4 class="font-semibold">Chống hạn chế tương tác</h4>
+        <p class="text-sm text-slate-600">Gỡ hạn chế share, comment, tương tác thấp</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="lock" class="w-6 h-6 text-purple-600"></i>
+      <div>
+        <h4 class="font-semibold">Tăng bảo mật – chống hack</h4>
+        <p class="text-sm text-slate-600">Tăng độ trust và giảm rủi ro bảo mật tài khoản</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="wrench" class="w-6 h-6 text-yellow-600"></i>
+      <div>
+        <h4 class="font-semibold">Fix lỗi Fanpage & Backup dữ liệu</h4>
+        <p class="text-sm text-slate-600">Khôi phục, backup, xử lý lỗi hiển thị</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Dịch vụ 7: MMO Automation -->
+<div class="mb-8">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <i data-lucide="bot" class="w-6 h-6 text-blue-600"></i> 7. Dịch vụ MMO – Automation
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="thumbs-up" class="w-6 h-6 text-blue-500"></i>
+      <div>
+        <h4 class="font-semibold">Auto like / follow</h4>
+        <p class="text-sm text-slate-600">Chạy tự động theo target khách hàng</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="message-circle" class="w-6 h-6 text-pink-500"></i>
+      <div>
+        <h4 class="font-semibold">Auto comment / share</h4>
+        <p class="text-sm text-slate-600">Tăng tương tác thật, hỗ trợ seeding</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="search" class="w-6 h-6 text-green-600"></i>
+      <div>
+        <h4 class="font-semibold">Auto SEO Reels – Video</h4>
+        <p class="text-sm text-slate-600">Đẩy đề xuất nhanh theo key thời gian thực</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="cpu" class="w-6 h-6 text-indigo-600"></i>
+      <div>
+        <h4 class="font-semibold">Tạo tool nuôi tài khoản</h4>
+        <p class="text-sm text-slate-600">Tool reg – nuôi – chăm tương tác tự động</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Dịch vụ 8: Thương hiệu cá nhân (KOL / KOC) -->
+<div class="mb-8">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <i data-lucide="award" class="w-6 h-6 text-rose-600"></i> 8. Dịch vụ thương hiệu cá nhân (KOL / KOC)
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="user" class="w-6 h-6 text-indigo-600"></i>
+      <div>
+        <h4 class="font-semibold">Tăng độ tin tưởng profile</h4>
+        <p class="text-sm text-slate-600">Xây trust bằng tương tác, đánh giá và lịch sử hoạt động</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="image" class="w-6 h-6 text-pink-500"></i>
+      <div>
+        <h4 class="font-semibold">Xây hình ảnh cá nhân</h4>
+        <p class="text-sm text-slate-600">Thiết kế avatar, banner và tone hình đồng nhất</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="file-text" class="w-6 h-6 text-green-600"></i>
+      <div>
+        <h4 class="font-semibold">Viết profile chuyên nghiệp</h4>
+        <p class="text-sm text-slate-600">Bio / About thu hút, tối ưu từ khoá, tăng tìm kiếm</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="calendar" class="w-6 h-6 text-yellow-600"></i>
+      <div>
+        <h4 class="font-semibold">Lên lịch đăng bài, quản lý tương tác</h4>
+        <p class="text-sm text-slate-600">Kịch bản đăng, rep comment & inbox theo lịch cố định</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Dịch vụ 9: Bán tài khoản & tài nguyên -->
+<div class="mb-8">
+  <h3 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+    <i data-lucide="package" class="w-6 h-6 text-emerald-600"></i> 9. Dịch vụ bán tài khoản & tài nguyên
+  </h3>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+      <div>
+        <h4 class="font-semibold">Bán tài khoản Facebook (via / clone / reg)</h4>
+        <p class="text-sm text-slate-600">Acc đa dạng: via tệp, clone sẵn, reg mới theo yêu cầu</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="layers" class="w-6 h-6 text-indigo-600"></i>
+      <div>
+        <h4 class="font-semibold">Bán Fanpage có like sẵn</h4>
+        <p class="text-sm text-slate-600">Fanpage niche, có tương tác & like nền tảng</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="phone" class="w-6 h-6 text-pink-500"></i>
+      <div>
+        <h4 class="font-semibold">Bán Gmail, TikTok, Instagram reg mới</h4>
+        <p class="text-sm text-slate-600">Tài nguyên reg sẵn, đảm bảo xác thực cơ bản</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="shield-check" class="w-6 h-6 text-red-600"></i>
+      <div>
+        <h4 class="font-semibold">Bán proxy – VPS – BM – Via</h4>
+        <p class="text-sm text-slate-600">Proxy/Server & Business Manager chuẩn phục vụ nuôi & chạy Ads</p>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white rounded-2xl shadow flex gap-3">
+      <i data-lucide="truck" class="w-6 h-6 text-rose-600"></i>
+      <div>
+        <h4 class="font-semibold">Thuê BM, thuê tài khoản quảng cáo</h4>
+        <p class="text-sm text-slate-600">Cho thuê theo ngày/tuần/tháng, cam kết hoạt động ổn định</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</section>
+<!-- Bảng giá tham khảo -->
+<section id="bang-gia" class="py-10 bg-gradient-to-b from-blue-50 to-rose-50 fade-section">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Bảng giá tham khảo</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Gói Cơ bản -->
+      <div class="card-animate p-6 bg-white rounded-2xl shadow border border-slate-200">
+        <i data-lucide="wallet" class="w-12 h-12 text-blue-600 mb-4"></i>
+        <h3 class="text-xl font-bold">Gói Cơ Bản</h3>
+        <p class="text-slate-500 mt-1">Phù hợp kênh nhỏ hoặc mới tạo</p>
+
+        <div class="text-3xl font-extrabold mt-4">99k – 199k</div>
+
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Tăng like / follow / view</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Tối ưu hiển thị bài viết</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Tốc độ tự nhiên, an toàn</li>
+        </ul>
+
+        <a href="#lien-he" class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold shadow hover:bg-blue-700">Liên hệ</a>
+      </div>
+
+      <!-- Gói Tăng Trưởng -->
+      <div class="card-animate p-6 bg-white rounded-2xl shadow border-2 border-pink-500">
+        <div class="inline-flex items-center gap-2 text-xs font-semibold bg-pink-100 text-pink-700 px-3 py-1 rounded-full">
+          Phổ biến nhất
+        </div>
+
+        <i data-lucide="rocket" class="w-12 h-12 text-pink-600 mb-4 mt-3"></i>
+
+        <h3 class="text-xl font-bold">Gói Tăng Trưởng</h3>
+        <p class="text-slate-500 mt-1">Đẩy mạnh tương tác – tối ưu thuật toán</p>
+
+        <div class="text-3xl font-extrabold mt-4">399k – 899k</div>
+
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Tăng Reels / Video theo quốc gia</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Seeding comment tự nhiên</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Kèm phân tích & gợi ý nội dung</li>
+        </ul>
+
+        <a href="#lien-he" class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-white font-semibold shadow hover:bg-pink-700">Đặt gói</a>
+      </div>
+
+      <!-- Gói Doanh Nghiệp -->
+      <div class="card-animate p-6 bg-white rounded-2xl shadow border border-slate-200">
+        <i data-lucide="building" class="w-12 h-12 text-emerald-600 mb-4"></i>
+        <h3 class="text-xl font-bold">Gói Doanh Nghiệp</h3>
+        <p class="text-slate-500 mt-1">Dành cho shop – creator – doanh nghiệp</p>
+
+        <div class="text-3xl font-extrabold mt-4">Liên hệ</div>
+
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Tăng trưởng đa kênh (FB, TikTok…)</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Chiến dịch Ads theo KPI</li>
+          <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i> Quản lý nội dung + báo cáo tuần</li>
+        </ul>
+
+        <a href="#lien-he" class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-emerald-600 px-5 py-3 text-white font-semibold shadow hover:bg-emerald-700">Nhận tư vấn</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Các trường hợp -->
+<section id="truong-hop" class="py-10 bg-rose-50 fade-section">
+  <div class="mx-auto max-w-6xl px-4 text-center">
+    <h3 class="text-3xl font-bold text-slate-900 mb-8">Các trường hợp bạn thường gặp phải</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+      <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <img src="https://i.imgur.com/e526vSm.jpeg" alt="hack" class="w-72 h-72 mb-4 object-cover rounded-lg">
+        <span class="text-slate-700 font-medium text-center">Tài khoản bị hack hoặc mất quyền truy cập</span>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <img src="https://i.imgur.com/vit1wBJ.jpeg" alt="xác minh" class="w-72 h-72 mb-4 object-cover rounded-lg">
+        <span class="text-slate-700 font-medium text-center">Yêu cầu mã xác minh đăng nhập</span>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <img src="https://i.imgur.com/YYtxqct.jpeg" alt="vi phạm" class="w-72 h-72 mb-4 object-cover rounded-lg">
+        <span class="text-slate-700 font-medium text-center">Khoá 956 Két Sắt</span>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <img src="https://i.imgur.com/SgQu9J4.jpeg" alt="quên mật khẩu" class="w-72 h-72 mb-4 object-cover rounded-lg">
+        <span class="text-slate-700 font-medium text-center">Khoá 956 Ổ </span>
+      </div>
+      <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+        <img src="https://i.imgur.com/FZPCsn1.jpeg" alt="khóa tạm thời" class="w-72 h-72 mb-4 object-cover rounded-lg">
+        <span class="text-slate-700 font-medium text-center">Khoá 180 Ngày</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phản hồi khách hàng -->
+<section id="phan-hoi" class="py-10 bg-rose-50 fade-section">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Phản hồi khách hàng</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-animate p-6 bg-white rounded-2xl shadow text-center">
+        <img src="https://i.imgur.com/2kDPW1v.jpeg" alt="avatar" class="w-16 h-16 rounded-full mx-auto mb-4">
+        <p class="text-slate-600 mb-3">“Dịch vụ nhanh chóng và an toàn, tôi đã lấy lại tài khoản trong 1 ngày.”</p>
+        <h4 class="font-semibold">Ngọc Anh – Hà Nội</h4>
+      </div>
+      <div class="card-animate p-6 bg-white rounded-2xl shadow text-center">
+        <img src="https://i.imgur.com/yXaISbK.jpeg" alt="avatar" class="w-16 h-16 rounded-full mx-auto mb-4">
+        <p class="text-slate-600 mb-3">“Nhân viên hỗ trợ rất nhiệt tình, hướng dẫn chi tiết từng bước.”</p>
+        <h4 class="font-semibold">Văn Hùng – Đà Nẵng</h4>
+      </div>
+      <div class="card-animate p-6 bg-white rounded-2xl shadow text-center">
+        <img src="https://i.imgur.com/x3JscqO.jpeg" alt="avatar" class="w-16 h-16 rounded-full mx-auto mb-4">
+        <p class="text-slate-600 mb-3">“Rất hài lòng, dịch vụ uy tín và chuyên nghiệp.”</p>
+        <h4 class="font-semibold">Trà My – TP.HCM</h4>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+<section id="faq" class="py-10 bg-white fade-section">
+  <div class="mx-auto max-w-3xl px-4">
+    <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Câu hỏi thường gặp</h2>
+    <div class="space-y-4">
+      <details class="group bg-slate-50 rounded-xl p-5 shadow">
+        <summary class="flex cursor-pointer items-center justify-between font-semibold">Dịch vụ có an toàn cho kênh không?
+          <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="mt-3 text-slate-600">Tốc độ và phương thức thực hiện được cài đặt an toàn, tránh đột biến. Chúng tôi tư vấn tối ưu nội dung song song để hạn chế rủi ro.</p>
+      </details>
+      <details class="group bg-slate-50 rounded-xl p-5 shadow">
+        <summary class="flex cursor-pointer items-center justify-between font-semibold">Bao lâu thấy kết quả?
+          <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="mt-3 text-slate-600">Tuỳ gói dịch vụ: thường từ vài phút đến 24h. Chiến dịch lớn có lộ trình và báo cáo rõ ràng.</p>
+      </details>
+      <details class="group bg-slate-50 rounded-xl p-5 shadow">
+        <summary class="flex cursor-pointer items-center justify-between font-semibold">Có xuất hoá đơn/hợp đồng không?
+          <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="mt-3 text-slate-600">Nhận hợp đồng/PO cho doanh nghiệp. Chính sách bảo hành theo từng danh mục.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Thành viên hỗ trợ -->
+<section id="lien-he" class="py-10 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center fade-section">
+  <div class="mx-auto max-w-5xl px-4">
+    <h2 class="text-3xl font-bold mb-8">Các thành viên hỗ trợ</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white/10 rounded-2xl shadow-lg hover:bg-white/20 transition">
+        <img src="https://i.imgur.com/5kuud6k.jpeg" alt="support" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white">
+        <h4 class="text-xl font-semibold">Nguyễn Đức Đạt</h4>
+        <p class="text-blue-100 text-sm mb-3">Chuyên gia Facebook</p>
+        <a href="https://zalo.me/0567866683" target="_blank" class="px-4 py-2 rounded-lg bg-white text-blue-600 font-semibold shadow hover:bg-slate-100">Liên hệ</a>
+      </div>
+      <div class="p-6 bg-white/10 rounded-2xl shadow-lg hover:bg-white/20 transition">
+        <img src="https://i.imgur.com/sRMZJvJ.jpeg" alt="support" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white">
+        <h4 class="text-xl font-semibold">Nguyễn Vô Diện</h4>
+        <p class="text-blue-100 text-sm mb-3">Hỗ trợ TikTok</p>
+        <a href="https://zalo.me/0567758386" target="_blank" class="px-4 py-2 rounded-lg bg-white text-blue-600 font-semibold shadow hover:bg-slate-100">Liên hệ</a>
+      </div>
+      <div class="p-6 bg-white/10 rounded-2xl shadow-lg hover:bg-white/20 transition">
+        <img src="https://i.imgur.com/aEFZ6XU.jpeg" alt="support" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white">
+        <h4 class="text-xl font-semibold">Khánh Linh</h4>
+        <p class="text-blue-100 text-sm mb-3">Chăm sóc khách hàng</p>
+        <a href="https://zalo.me/0815129283" target="_blank" class="px-4 py-2 rounded-lg bg-white text-blue-600 font-semibold shadow hover:bg-slate-100">Liên hệ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-300 py-8 fade-section">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <p class="text-sm">© 2025 Media Luxury. All rights reserved.</p>
+    <div class="flex gap-4 icon-animate">
+      <a href="https://www.facebook.com/Profile.x.DucDat99/"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+      <a href="#"><i data-lucide="message-circle" class="w-6 h-6"></i></a>
+      <a href="https://mail.google.com/"><i data-lucide="mail" class="w-6 h-6"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Music Player -->
+<div id="music-player" style="display:none;"></div>
+<div class="music-btn" id="music-toggle">
+  <i data-lucide="volume-2"></i>
+</div>
+
+<!-- Tuyết rơi canvas -->
+<canvas id="snow-canvas"></canvas>
+
+<script>
+  lucide.createIcons();
+
+  // Fade-in sections
+  const sections = document.querySelectorAll('.fade-section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('show'); }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(sec => observer.observe(sec));
+
+  // Tuyết rơi
+  const canvas = document.getElementById('snow-canvas');
+  const ctx = canvas.getContext('2d');
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const numFlakes = 150;
+  const flakes = [];
+
+  for (let i = 0; i < numFlakes; i++) {
+    flakes.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 4 + 1,
+      d: Math.random() * numFlakes
+    });
+  }
+
+  function drawSnow() {
+    ctx.clearRect(0,0,width,height);
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.beginPath();
+    for (let i =0;i<numFlakes;i++){
+      let f = flakes[i];
+      ctx.moveTo(f.x,f.y);
+      ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true);
+    }
+    ctx.fill();
+    moveSnow();
+  }
+
+  let angle = 0;
+  function moveSnow() {
+    angle += 0.01;
+    for(let i=0;i<numFlakes;i++){
+      let f = flakes[i];
+      f.y += Math.cos(angle + f.d) + 1 + f.r/2;
+      f.x += Math.sin(angle) * 2;
+      if(f.y > height){ flakes[i] = { x: Math.random()*width, y:0, r:f.r, d:f.d }; }
+    }
+  }
+
+  setInterval(drawSnow, 30);
+  // YouTube nhạc nền
+  let player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('music-player', {
+      height: '0',
+      width: '0',
+      videoId: 'HK_ozvD4GcQ',
+      playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': 'HK_ozvD4GcQ', 'start': 1371 },
+      events: { 'onReady': (event) => { event.target.setVolume(100); } }
+    });
+  }
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  // Nút toggle nhạc
+  const btn = document.getElementById('music-toggle');
+  let isPlaying = true;
+  btn.addEventListener('click', () => {
+    if (!player) return;
+    if (isPlaying) {
+      player.pauseVideo();
+      btn.innerHTML = '<i data-lucide="volume-x"></i>';
+    } else {
+      player.playVideo();
+      btn.innerHTML = '<i data-lucide="volume-2"></i>';
+    }
+    lucide.createIcons();
+    isPlaying = !isPlaying;
+  });
+
+  // Trái tim bay theo chuột
+  const heartColors = ['#FF6B6B','#FFB36B','#FFD93D','#6BCB77','#4D96FF','#C77DFF'];
+  document.addEventListener('mousemove', e => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    const size = Math.random()*20+10;
+    heart.style.width = size+'px';
+    heart.style.height = size+'px';
+    const color = heartColors[Math.floor(Math.random()*heartColors.length)];
+    heart.style.background = color;
+    heart.style.left = e.clientX - size/2 + 'px';
+    heart.style.top = e.clientY - size/2 + 'px';
+
+    const before = document.createElement('div');
+    before.style.width = size+'px';
+    before.style.height = size+'px';
+    before.style.background = color;
+    before.style.borderRadius = '50%';
+    before.style.position = 'absolute';
+    before.style.top = -size/2 + 'px';
+    before.style.left = '0px';
+
+    const after = document.createElement('div');
+    after.style.width = size+'px';
+    after.style.height = size+'px';
+    after.style.background = color;
+    after.style.borderRadius = '50%';
+    after.style.position = 'absolute';
+    after.style.left = size/2 + 'px';
+    after.style.top = '0px';
+
+    heart.appendChild(before);
+    heart.appendChild(after);
+    document.body.appendChild(heart);
+
+    let scale = 1;
+    let opacity = 1;
+    const anim = setInterval(()=>{
+      scale -= 0.02;
+      opacity -= 0.03;
+      heart.style.transform = `rotate(-45deg) scale(${scale})`;
+      heart.style.top = (parseFloat(heart.style.top)-1)+'px';
+      heart.style.opacity = opacity;
+      if(scale<=0 || opacity<=0){ heart.remove(); clearInterval(anim);}
+    },16);
+  });
+</script>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) { // F12
+      return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+      return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+      return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+      return false;
+    }
+  }
+</script>
+</body>
+</html>
